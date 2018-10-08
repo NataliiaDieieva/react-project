@@ -5,10 +5,13 @@ const SUFFIX = {
     FINISH: 'FINISH',
 };
 
+/**
+ * create object with types
+ */
 export function createType ( type ) {
     let action = {};
-    for ( let name of Object.keys(SUFFIX) ) {
-        action[name] = `${type}.${name}`;
+    for ( let name in SUFFIX ) {
+        action[name] = `${type}_${SUFFIX[name]}`;
     }
     return action;
 }
